@@ -119,7 +119,7 @@ DATE_PARAMS = {
 def get_paginator(
     resource,
     page_size=None,
-    pagination_mode=PaginationMode.date_indexed,
+    pagination_mode=PaginationMode.date_modified,
 ):
     return {
         PaginationMode.date_indexed: {
