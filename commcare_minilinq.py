@@ -41,6 +41,7 @@ class PaginationMode(Enum):
     def supported_modes(cls):
         return [
             cls.date_indexed,
+            cls.date_modified,
             cls.cursor,
         ]
 
