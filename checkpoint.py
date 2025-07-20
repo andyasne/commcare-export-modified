@@ -477,7 +477,7 @@ class CheckpointManagerProvider(object):
     def get_paginator_for_datasource(datasource):
         if datasource == 'ucr':
             return PaginationMode.cursor
-        return PaginationMode.date_indexed
+        return PaginationMode.date_modified
 
     def get_checkpoint_manager(self, data_source, table_names):
         """
