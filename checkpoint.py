@@ -42,11 +42,8 @@ class Checkpoint(Base):
         value defaults to 'date_modified' mode to support legacy
         checkpoints.
         """
-        if not self.pagination_mode:
-            return PaginationMode.date_modified
-
-        return PaginationMode[self.pagination_mode]
-
+        return PaginationMode.date_modified
+ 
     def __repr__(self):
         return (
             "<Checkpoint("
