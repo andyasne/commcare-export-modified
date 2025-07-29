@@ -41,7 +41,6 @@ class PaginationMode(Enum):
     def supported_modes(cls):
         return [
             cls.date_indexed,
-            cls.date_modified,
             cls.cursor,
         ]
 
@@ -119,7 +118,7 @@ DATE_PARAMS = {
 def get_paginator(
     resource,
     page_size=None,
-    pagination_mode=PaginationMode.date_modified,
+    pagination_mode=PaginationMode.date_indexed,
 ):
     return {
         PaginationMode.date_indexed: {

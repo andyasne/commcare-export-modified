@@ -42,8 +42,11 @@ class Checkpoint(Base):
         value defaults to 'date_modified' mode to support legacy
         checkpoints.
         """
-        return PaginationMode.date_modified
- 
+        if not self.pagination_mode:
+            return PaginationMode.date_modified
+
+        return PaginationMode[self.pagination_mode]
+
     def __repr__(self):
         return (
             "<Checkpoint("
@@ -477,7 +480,7 @@ class CheckpointManagerProvider(object):
     def get_paginator_for_datasource(datasource):
         if datasource == 'ucr':
             return PaginationMode.cursor
-        return PaginationMode.date_modified
+        return PaginationMode.date_indexed
 
     def get_checkpoint_manager(self, data_source, table_names):
         """
